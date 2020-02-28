@@ -23,6 +23,9 @@ class Tournament:
 
     #start a game
     def start(self):
+        if self.game_started:
+            raise Exception("Game Already Started")
+        
         bckt_generated = False
 
         round_num = 0
