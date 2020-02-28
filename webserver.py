@@ -1,20 +1,13 @@
 import tornado.ioloop
 import tornado.web
 
-class MainHandler(tornado.web.RequestHandler):
-    def get(self):
-        self.render("landing.html")
-
-
-class GameHandler(tornado.web.RequestHandler):
-    def get(self):
-        self.render("game.html")
-
+from MainHandler import MainHandler
+from GameHandler import GameHandler
 
 def make_app():
     return tornado.web.Application([
         (r"/", MainHandler),
-	(r"/game", GameHandler),
+	    (r"/game(?:/([a-zA-Z0-9]*))?", GameHandler),
     ])
 
 if __name__ == "__main__":
