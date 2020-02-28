@@ -1,5 +1,5 @@
 
-#Tornament Class
+#Tournament Class
 class Tournament(object):
 
     def __init__(self):
@@ -23,7 +23,7 @@ class Tournament(object):
     def start(self):
         if self.game_started:
             raise Exception("Game Already Started")
-        
+
         bckt_generated = False
 
         round_num = 0
@@ -39,7 +39,15 @@ class Tournament(object):
 
             bckt_generated = len(self.rounds[nxt_round]*2) >= len(self.teams)
             round_num += 1
+
         
+        add_teams = list(self.teams)
+        for game in self.rounds[round_num -1]:
+            for x in range(2):
+                if not len(self.rounds[round_num -1]) == 0:
+                    game[x] == add_teams.pop(0)
+
+
         self.current_game = (round_num-1, 0)
         self.game_started = True
     
