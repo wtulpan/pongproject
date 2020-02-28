@@ -1,18 +1,16 @@
 
 #Tornament Class
-class Tournament:
-    
-    self.teams = []
-    self.game_started = False
-    self.current_game = None
-    self.rounds = [
-        [[0,0, ()]]
-        ]
-    
-    self.winner = ""
+class Tournament(object):
 
-    def Tournament(self):
-        pass
+    def __init__(self):
+        self.teams = []
+        self.game_started = False
+        self.current_game = None
+        self.rounds = [
+            [[0,0, ()]]
+            ]
+
+        self.winner = ""
 
     #add a team
     def add_team(self, name):
